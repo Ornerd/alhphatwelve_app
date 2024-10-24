@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import imgOne from "../assets/images/Slide.png";
 import imgTwo from "../assets/images/Slide (1).png";
 import imagThree from "../assets/images/Slide (2).png";
-import SingleChevron from './IconsSVG/SIngleChevron';
+import SingleChevron from './IconsSVG/SingleChevron';
 
 const Carousel = () => {
 
