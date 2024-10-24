@@ -9,6 +9,7 @@ import InfoIcon from './components/IconsSVG/otherIconsSVG/InfoIcon';
 import FooterNav from './components/FooterNav';
 import BarChart from './components/BarChart';
 import Carousel from './components/Carousel';
+import DropdownBar from './components/DropDownBar';
 
 
 
@@ -94,6 +95,22 @@ function App()  {
             </div>
           </div>
          
+        </section>
+        <section className='data-table-module'>
+          <h3>Events History</h3>
+          <div className='query-area'>
+            <div>
+              <DropdownBar
+              defaultValue={"status"}/>
+              <DropdownBar
+              defaultValue={"name"}/>
+              <p><span>Displaying {100} results</span></p>
+            </div>
+            <div>
+              
+            </div>
+          </div>
+
         </section>
       </main>
       <FooterNav/>

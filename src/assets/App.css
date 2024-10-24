@@ -58,6 +58,7 @@ a {
 
 button {
   cursor: pointer;
+  border: var(--default-nav-border);
 }
 
 h1 {
@@ -105,6 +106,42 @@ p {
   font-size: 0.875rem; /*14px converted to rem*/
   line-height: 1.25rem; /*20px converted to rem*/
   color: var(--default-text);
+}
+
+.drop-down-bar {
+  position: relative;
+  border: solid 1px var(--default-nav-border);
+  background-color: var(--default-second-bg);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.drop-down-bar select {
+  z-index: 10;
+  padding: 0.5rem 2.6rem 0.5rem 1rem; /*top right bottom left*/
+  cursor: pointer;
+  background: transparent;
+  appearance: none;
+  border: none;
+  text-transform: capitalize;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--default-text);
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+.drop-down-bar div {
+  position: absolute;
+  z-index: 1;
+  right: 6px;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.drop-down-bar div svg path {
+  stroke: var(--default-svg);
 }
 
 .green {
@@ -452,6 +489,10 @@ main .graphical-stats-wrapper .carousel-container .button-indicator li div {
 main .graphical-stats-wrapper .carousel-container .button-indicator li.slick-active { /*applying heightened opacity to the active indicator*/ }
 main .graphical-stats-wrapper .carousel-container .button-indicator li.slick-active div {
   opacity: 1;
+}
+main .data-table-module {
+  width: 100%;
+  margin-top: 2.125rem;
 }
 
 .footer-nav {
