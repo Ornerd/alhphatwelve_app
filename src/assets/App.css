@@ -58,7 +58,11 @@ a {
 
 button {
   cursor: pointer;
-  border: var(--default-nav-border);
+  border: solid 1px var(--default-nav-border);
+}
+button:hover {
+  background-color: var(--default-hovered-bg);
+  color: var(--default-hovered-text);
 }
 
 h1 {
@@ -116,11 +120,16 @@ p {
   align-items: center;
   justify-content: left;
 }
+.drop-down-bar:hover select {
+  color: var(--default-hovered-text);
+}
 .drop-down-bar select {
   z-index: 10;
   padding: 0.5rem 2.6rem 0.5rem 1rem; /*top right bottom left*/
   cursor: pointer;
   background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   border: none;
   text-transform: capitalize;
@@ -493,6 +502,101 @@ main .graphical-stats-wrapper .carousel-container .button-indicator li.slick-act
 main .data-table-module {
   width: 100%;
   margin-top: 2.125rem;
+}
+main .data-table-module .query-area {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+  gap: 0.5rem;
+}
+main .data-table-module .query-area .search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 10rem;
+  border: solid 1px var(--default-nav-border);
+  background-color: var(--default-second-bg);
+}
+main .data-table-module .query-area .search-bar div {
+  position: absolute;
+  z-index: 1;
+  left: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .data-table-module .query-area .search-bar div svg path {
+  stroke: var(--default-svg);
+}
+main .data-table-module .query-area .search-bar input {
+  z-index: 10;
+  padding: 0.5rem 0rem 0.5rem 1.75rem; /*top right bottom left*/
+  cursor: pointer;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  text-transform: capitalize;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--default-text);
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+main .data-table-module .query-area .search-bar:hover input {
+  color: var(--default-hovered-text);
+}
+main .data-table-module .query-area div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+  gap: 0.5rem;
+}
+main .data-table-module .query-area div:last-child {
+  margin-left: auto;
+}
+main .data-table-module .query-area div:last-child button:last-child, main .data-table-module .query-area div:last-child button:nth-last-child(2) {
+  padding: 0.5rem;
+  background-color: var(--default-second-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .data-table-module .query-area div:last-child button:last-child:hover, main .data-table-module .query-area div:last-child button:nth-last-child(2):hover {
+  background-color: var(--default-hovered-bg);
+  color: var(--default-hovered-text);
+}
+main .data-table-module .query-area div:last-child button:last-child:hover p, main .data-table-module .query-area div:last-child button:nth-last-child(2):hover p {
+  color: var(--default-hovered-text);
+}
+main .data-table-module .query-area div:last-child button:last-child div, main .data-table-module .query-area div:last-child button:nth-last-child(2) div {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .data-table-module .query-area div:last-child button:last-child div svg path, main .data-table-module .query-area div:last-child button:nth-last-child(2) div svg path {
+  stroke: var(--default-svg);
+}
+main .data-table-module .query-area div:last-child button:last-child {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  gap: 0.5rem;
+}
+main .data-table-module .query-area p {
+  text-wrap: nowrap;
+}
+main .data-table-module .query-area p span {
+  font-weight: 600;
 }
 
 .footer-nav {

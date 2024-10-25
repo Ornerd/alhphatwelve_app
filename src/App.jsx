@@ -10,6 +10,10 @@ import FooterNav from './components/FooterNav';
 import BarChart from './components/BarChart';
 import Carousel from './components/Carousel';
 import DropdownBar from './components/DropDownBar';
+import VerticalDots from './components/IconsSVG/otherIconsSVG/VerticalDots';
+import DownloadIcon from './components/IconsSVG/otherIconsSVG/DownloadIcon';
+import SearchIcon from './components/IconsSVG/otherIconsSVG/SearchIcon';
+import SingleChevron from './components/IconsSVG/SingleChevron';
 
 
 
@@ -100,14 +104,53 @@ function App()  {
           <h3>Events History</h3>
           <div className='query-area'>
             <div>
+
+              <label className='search-bar'>
+                <div>
+                  <SearchIcon/>
+                </div>
+                <input 
+                placeholder='search'
+                />
+                
+              </label>
+
+            
               <DropdownBar
-              defaultValue={"status"}/>
+              defaultValue={"date"}
+              />
+
               <DropdownBar
-              defaultValue={"name"}/>
+              defaultValue={"status"}
+              />
+
+              <DropdownBar
+              defaultValue={"name"}
+              />
+
               <p><span>Displaying {100} results</span></p>
             </div>
+
             <div>
-              
+              <p>Sort:</p>
+
+              <DropdownBar
+                defaultValue={"most recent"}
+              />
+
+              <button>
+                <div>
+                  <VerticalDots/>
+                </div>
+              </button>
+
+              <button>
+                <div>
+                  <DownloadIcon/>
+                </div>
+                <p>Export</p>
+              </button>
+
             </div>
           </div>
 

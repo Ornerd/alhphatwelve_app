@@ -14,7 +14,7 @@ const DropdownBar = ({defaultValue, otherOptions}) => {
             )} */}
             </select>
             <div>
-            <SingleChevron/>
+                <SingleChevron/>
             </div>
         </button>
     )
