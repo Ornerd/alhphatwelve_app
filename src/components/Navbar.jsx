@@ -92,7 +92,7 @@ const Navbar = ({collapsed, handleCollapse, toggleDarkModeFunction}) => {
         </button>
         <div className="toggler">
             <label>
-                <input type="checkbox" onClick={toggleDarkMode}/>
+                <input type="checkbox" name="toggler" onClick={toggleDarkMode}/>
                 <span className="slider">
                     <span className='knob'></span>
                 </span>
@@ -129,7 +129,7 @@ const Navbar = ({collapsed, handleCollapse, toggleDarkModeFunction}) => {
 
             <div className="toggler">
                 <label>
-                    <input type="checkbox" onClick={toggleDarkMode}/>
+                    <input type="checkbox" name="toggler" onClick={toggleDarkMode}/>
                     <span className="slider">
                         <span className='knob'></span>
                     </span>

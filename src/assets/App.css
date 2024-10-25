@@ -517,7 +517,7 @@ main .data-table-module .query-area .search-bar {
   display: flex;
   align-items: center;
   position: relative;
-  max-width: 12rem;
+  max-width: 11rem;
   border: solid 1px var(--default-nav-border);
   background-color: var(--default-second-bg);
 }
@@ -535,6 +535,7 @@ main .data-table-module .query-area .search-bar div svg path {
   stroke: var(--default-svg);
 }
 main .data-table-module .query-area .search-bar input {
+  width: 100%;
   z-index: 10;
   padding: 0.5rem 0rem 0.5rem 2rem; /*top right bottom left*/
   cursor: pointer;
@@ -550,7 +551,16 @@ main .data-table-module .query-area .search-bar input {
   text-wrap: nowrap;
   text-overflow: ellipsis;
 }
+main .data-table-module .query-area .search-bar ::placeholder {
+  color: var(--default-text);
+}
+main .data-table-module .query-area .search-bar:hover {
+  background-color: var(--default-hovered-bg);
+}
 main .data-table-module .query-area .search-bar:hover input {
+  color: var(--default-hovered-text);
+}
+main .data-table-module .query-area .search-bar:hover ::placeholder {
   color: var(--default-hovered-text);
 }
 main .data-table-module .query-area div {

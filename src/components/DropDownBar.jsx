@@ -1,10 +1,10 @@
 import React from "react";
 import SingleChevron from "./IconsSVG/SingleChevron";
 
-const DropdownBar = ({defaultValue, otherOptions}) => {
+const DropdownBar = ({defaultValue, otherOptions, selectFunc}) => {
     return (
         <button className={`drop-down-bar`}>
-            <select className={`cursor-pointer absolute z-10 left-0 bg-transparent w-full h-full`}>
+            <select className={`cursor-pointer absolute z-10 left-0 bg-transparent w-full h-full`} id={selectFunc}>
             <option value='select' selected>{defaultValue}</option>
             {/* {otherOptions.map((otherOption, index) => {
                 return (

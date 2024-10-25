@@ -111,6 +111,7 @@ function App()  {
                 </div>
                 <input 
                 placeholder='search...'
+                id='search'
                 />
                 
               </label>
@@ -118,14 +119,17 @@ function App()  {
             
               <DropdownBar
               defaultValue={"date"}
+              selectFunc={"date"}
               />
 
               <DropdownBar
               defaultValue={"status"}
+              selectFunc={"status"}
               />
 
               <DropdownBar
               defaultValue={"name"}
+              selectFunc={"nameOf"}
               />
 
               <p><span>Displaying {100} results</span></p>
@@ -136,6 +140,7 @@ function App()  {
 
               <DropdownBar
                 defaultValue={"most recent"}
+                selectFunc={"activity"}
               />
 
               <button>

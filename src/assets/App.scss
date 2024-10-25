@@ -613,7 +613,7 @@ main {
                 display: flex;
                 align-items: center;
                 position: relative;
-                max-width: 12rem;
+                max-width: 11rem;
                 border: solid 1px var(--default-nav-border);
                 background-color: var(--default-second-bg);
 
@@ -636,6 +636,7 @@ main {
                 }
 
                 input {
+                    width: 100%;
                     z-index: 10;
                     padding: 0.5rem 0rem 0.5rem 2rem; /*top right bottom left*/
                     cursor: pointer;
@@ -652,8 +653,16 @@ main {
                     text-overflow: ellipsis;
                 }
 
+                ::placeholder{
+                    color: var(--default-text);
+                }
+
                 &:hover {
+                    background-color: var(--default-hovered-bg);
                     input {
+                        color: var(--default-hovered-text);
+                    }
+                    ::placeholder{
                         color: var(--default-hovered-text);
                     }
                 }
