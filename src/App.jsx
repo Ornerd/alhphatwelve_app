@@ -110,7 +110,7 @@ function App()  {
                   <SearchIcon/>
                 </div>
                 <input 
-                placeholder='search'
+                placeholder='search...'
                 />
                 
               </label>
