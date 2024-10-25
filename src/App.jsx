@@ -103,7 +103,7 @@ function App()  {
         <section className='data-table-module'>
           <h3>Events History</h3>
           <div className='query-area'>
-            <div>
+            <div className='left-alignment'>
 
               <label className='search-bar'>
                 <div>
@@ -135,7 +135,7 @@ function App()  {
               <p><span>Displaying {100} results</span></p>
             </div>
 
-            <div>
+            <div className='right-alignment'>
               <p>Sort:</p>
 
               <DropdownBar

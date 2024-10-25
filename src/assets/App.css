@@ -563,41 +563,41 @@ main .data-table-module .query-area .search-bar:hover input {
 main .data-table-module .query-area .search-bar:hover ::placeholder {
   color: var(--default-hovered-text);
 }
-main .data-table-module .query-area div {
+main .data-table-module .query-area .left-alignment, main .data-table-module .query-area .right-alignment {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: left;
   gap: 0.5rem;
 }
-main .data-table-module .query-area div:last-child {
+main .data-table-module .query-area .left-alignment:last-child, main .data-table-module .query-area .right-alignment:last-child {
   margin-left: auto;
 }
-main .data-table-module .query-area div:last-child button:last-child, main .data-table-module .query-area div:last-child button:nth-last-child(2) {
+main .data-table-module .query-area .left-alignment:last-child button:last-child, main .data-table-module .query-area .left-alignment:last-child button:nth-last-child(2), main .data-table-module .query-area .right-alignment:last-child button:last-child, main .data-table-module .query-area .right-alignment:last-child button:nth-last-child(2) {
   padding: 0.5rem;
   background-color: var(--default-second-bg);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-main .data-table-module .query-area div:last-child button:last-child:hover, main .data-table-module .query-area div:last-child button:nth-last-child(2):hover {
+main .data-table-module .query-area .left-alignment:last-child button:last-child:hover, main .data-table-module .query-area .left-alignment:last-child button:nth-last-child(2):hover, main .data-table-module .query-area .right-alignment:last-child button:last-child:hover, main .data-table-module .query-area .right-alignment:last-child button:nth-last-child(2):hover {
   background-color: var(--default-hovered-bg);
   color: var(--default-hovered-text);
 }
-main .data-table-module .query-area div:last-child button:last-child:hover p, main .data-table-module .query-area div:last-child button:nth-last-child(2):hover p {
+main .data-table-module .query-area .left-alignment:last-child button:last-child:hover p, main .data-table-module .query-area .left-alignment:last-child button:nth-last-child(2):hover p, main .data-table-module .query-area .right-alignment:last-child button:last-child:hover p, main .data-table-module .query-area .right-alignment:last-child button:nth-last-child(2):hover p {
   color: var(--default-hovered-text);
 }
-main .data-table-module .query-area div:last-child button:last-child div, main .data-table-module .query-area div:last-child button:nth-last-child(2) div {
+main .data-table-module .query-area .left-alignment:last-child button:last-child div, main .data-table-module .query-area .left-alignment:last-child button:nth-last-child(2) div, main .data-table-module .query-area .right-alignment:last-child button:last-child div, main .data-table-module .query-area .right-alignment:last-child button:nth-last-child(2) div {
   width: 1.25rem;
   height: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-main .data-table-module .query-area div:last-child button:last-child div svg path, main .data-table-module .query-area div:last-child button:nth-last-child(2) div svg path {
+main .data-table-module .query-area .left-alignment:last-child button:last-child div svg path, main .data-table-module .query-area .left-alignment:last-child button:nth-last-child(2) div svg path, main .data-table-module .query-area .right-alignment:last-child button:last-child div svg path, main .data-table-module .query-area .right-alignment:last-child button:nth-last-child(2) div svg path {
   stroke: var(--default-svg);
 }
-main .data-table-module .query-area div:last-child button:last-child {
+main .data-table-module .query-area .left-alignment:last-child button:last-child, main .data-table-module .query-area .right-alignment:last-child button:last-child {
   gap: 0.25rem;
 }
 main .data-table-module .query-area p {
@@ -635,6 +635,35 @@ main .data-table-module .query-area p span {
   }
   main .graphical-stats-wrapper .carousel-container {
     width: 100%;
+  }
+  main .data-table-module .query-area .left-alignment {
+    margin-bottom: 1rem;
+  }
+  main .data-table-module .query-area .left-alignment .search-bar {
+    width: 100%;
+    max-width: 100%;
+  }
+  main .data-table-module .query-area .left-alignment .drop-down-bar {
+    justify-content: center;
+    width: 100%;
+  }
+  main .data-table-module .query-area .left-alignment .drop-down-bar select {
+    width: 100%;
+    padding-left: 40%;
+  }
+  main .data-table-module .query-area .left-alignment .drop-down-bar div {
+    right: 40%;
+  }
+  main .data-table-module .query-area .right-alignment {
+    width: 100%;
+    justify-content: space-between;
+  }
+  main .data-table-module .query-area .right-alignment > * {
+    margin-right: 40%;
+  }
+  main .data-table-module .query-area .right-alignment :nth-child(2), main .data-table-module .query-area .right-alignment :nth-child(4) {
+    margin-right: 0%;
+    margin-left: auto;
   }
 }
 @media screen and (max-width: 700px) {
