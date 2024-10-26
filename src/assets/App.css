@@ -26,6 +26,12 @@
   --default-footer-nav-text: #64748B;
   --default-active-footer-nav-svg: #64748B;
   --default-active-footer-nav-stroke: #8576FF;
+  --text-status-completed: #10B981;
+  --border-status-completed: #D1FAE5;
+  --bg-status-completed: #D1FAE5;
+  --text-status-in-progress: #3B82F6;
+  --border-status-in-progress: #DBEAFE;
+  --bg-status-in-progress: #DBEAFE;
 }
 
 body {
@@ -51,6 +57,12 @@ body {
   --default-footer-nav-text: #FCF7FF;
   --default-active-footer-nav-svg: #8576FF;
   --default-active-footer-nav-stroke: #8576FF;
+  --text-status-completed: #65DDB5;
+  --border-status-completed: #65DDB5;
+  --bg-status-completed: transparent;
+  --text-status-in-progress: #77B1FF;
+  --border-status-in-progress: #77B1FF;
+  --bg-status-in-progress: transparent;
 }
 
 a {
@@ -616,17 +628,38 @@ main .data-table-module table {
 }
 main .data-table-module th {
   font-weight: 600;
+  padding: 1rem;
   background-color: var(--default-table-header-bg);
 }
-main .data-table-module th, main .data-table-module tr {
+main .data-table-module tr, main .data-table-module th, main .data-table-module td {
   color: var(--default-text);
   text-transform: capitalize;
 }
-main .data-table-module th div, main .data-table-module tr div {
+main .data-table-module td div {
   padding: 1rem;
 }
-main .data-table-module th .chevron-container, main .data-table-module tr .chevron-container { /*just in case...*/
+main .data-table-module td .chevron-container { /*just in case...*/
   display: none;
+}
+main .data-table-module td .event-status {
+  width: fit-content;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 10rem;
+  background-color: var(--bg-status-completed);
+  border: solid 1px var(--border-status-completed);
+}
+main .data-table-module td .event-status h5 {
+  color: var(--text-status-completed);
+}
+main .data-table-module td .event-status span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--text-status-completed);
 }
 
 .footer-nav {
@@ -687,12 +720,12 @@ main .data-table-module th .chevron-container, main .data-table-module tr .chevr
     margin-right: 0%;
     margin-left: auto;
   }
-  main .data-table-module th .chevron-container, main .data-table-module tr .chevron-container { /*just in case...*/
+  main .data-table-module tr td .chevron-container { /*just in case...*/
     display: inline;
     padding-left: 0;
     padding-right: 1rem;
   }
-  main .data-table-module th .chevron-container svg, main .data-table-module tr .chevron-container svg {
+  main .data-table-module tr td .chevron-container svg {
     width: 9px;
     height: 9px;
     transform: rotate(-90deg);

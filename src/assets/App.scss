@@ -25,6 +25,12 @@
   --default-footer-nav-text: #64748B;
   --default-active-footer-nav-svg: #64748B;
   --default-active-footer-nav-stroke: #8576FF;
+  --text-status-completed: #10B981;
+  --border-status-completed: #D1FAE5;
+  --bg-status-completed: #D1FAE5;
+  --text-status-in-progress: #3B82F6;
+  --border-status-in-progress: #DBEAFE;
+  --bg-status-in-progress: #DBEAFE;
 }
 
 // @keyframes resizeAsideBar {
@@ -59,6 +65,12 @@ body {
   --default-footer-nav-text: #FCF7FF;
     --default-active-footer-nav-svg: #8576FF;
   --default-active-footer-nav-stroke: #8576FF;
+  --text-status-completed: #65DDB5;
+  --border-status-completed: #65DDB5;
+  --bg-status-completed: transparent;
+  --text-status-in-progress: #77B1FF;
+  --border-status-in-progress: #77B1FF;
+  --bg-status-in-progress: transparent;
 }
 a {
     text-decoration: none;
@@ -732,23 +744,45 @@ main {
             table-layout:fixed;
             border-collapse: collapse; /*to prevent gaps between the cells in the table*/
         }
-
         th {
             font-weight: 600;
+            padding: 1rem;
             background-color: var(--default-table-header-bg);
         }
-
-        th, tr {
+        tr, th, td {
             // padding: 1rem;
             color: var(--default-text);
-            text-transform: capitalize;
-
+            text-transform: capitalize;           
+        }
+        td {
             div {
                 padding: 1rem;
             }
             .chevron-container { /*just in case...*/
                 display: none;
             }
+            .event-status {
+                width: fit-content;
+                padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                border-radius: 10rem;
+                background-color: var(--bg-status-completed);
+                border: solid 1px var(--border-status-completed);
+
+                h5 {
+                    color: var(--text-status-completed);
+                }
+
+                span {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: var(--text-status-completed);
+                }
+            }  
         }
     }
    
@@ -836,20 +870,23 @@ main {
                 }
             }
 
-            th, tr {
-                .chevron-container { /*just in case...*/
-                    display: inline;
-                    padding-left: 0;
-                    padding-right: 1rem;
-                    
-                    svg {
-                        width: 9px;
-                        height: 9px;
-                        transform: rotate(-90deg);
-                        transition: 0.4s ease;
-                        cursor: pointer;
+            tr {
+                td{
+                    .chevron-container { /*just in case...*/
+                        display: inline;
+                        padding-left: 0;
+                        padding-right: 1rem;
+                        
+                        svg {
+                            width: 9px;
+                            height: 9px;
+                            transform: rotate(-90deg);
+                            transition: 0.4s ease;
+                            cursor: pointer;
+                        }
                     }
                 }
+                
             }
         }
         

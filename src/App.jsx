@@ -195,7 +195,11 @@ function App()  {
                       <div>Date</div>
                     </td>
                     <td>
-                       <div>Status</div>
+                       <div>
+                        <span className='event-status'>
+                          <span></span><h5>{'completed'}</h5>
+                        </span>
+                       </div>
                     </td>
                   </tr>
                 </>
