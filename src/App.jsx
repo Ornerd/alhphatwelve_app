@@ -22,6 +22,7 @@ function App()  {
   const [inDarkMode, setInDarkMode] = useState(false)
   const toggleCollapseMenu = () => setCollapsed(collapsed => !collapsed);
   const [windowSize, setWindowSize] = useState (window.innerWidth);
+  const [accordionVisible, setAccordionVisible] = useState(false)
   const summaryStats = [
     {
       statLabel: 'Total Events',
@@ -213,8 +214,8 @@ function App()  {
                   </tr>
                   <tr>
                     <td> 
-                      <div><span className='chevron-container'><SingleChevron/></span>Event name</div>
-                      <div className=''>Speaker</div>
+                      <div><span className={accordionVisible? 'chevron-container turned' : 'chevron-container'} onClick={()=>setAccordionVisible(visible=>!visible)}><SingleChevron/></span>Event name</div>
+                      <div className={accordionVisible? 'collapsible expanded' : 'collapsible'}>Speaker</div>
                     </td>
                     <td>
                        <div>
@@ -222,15 +223,35 @@ function App()  {
                           <h5>{'completed'}</h5>
                         </span>
                        </div>
-                       <div className=''>Date</div>
+                       <div className={accordionVisible? 'collapsible expanded' : 'collapsible'}>Date</div>
                        </td>
                   </tr>
                 </>
               )
             }
-              
           </table>
 
+          <div className='pagination-area'>
+            <div className='left'>
+              <button>
+                <div><SingleChevron/></div>
+              </button>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+              <button>
+                <div><SingleChevron/></div>
+              </button>
+            </div>
+
+            <div className='right'>
+              <p>Show:</p>
+              <DropdownBar
+                defaultValue={"10 rows"}
+                selectFunc={"activity"}
+              />
+            </div>
+          </div>
         </section>
       </main>
       <FooterNav/>

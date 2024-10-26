@@ -24,6 +24,7 @@
   --default-nav-border: #F1F5F9;
   --default-footer-nav-svg: #484554;
   --default-footer-nav-text: #64748B;
+  --default-footer-nav-border: #F3F4F6;
   --default-active-footer-nav-svg: #64748B;
   --default-active-footer-nav-stroke: #8576FF;
   --text-status-completed: #10B981;
@@ -32,6 +33,11 @@
   --text-status-in-progress: #3B82F6;
   --border-status-in-progress: #DBEAFE;
   --bg-status-in-progress: #DBEAFE;
+  --expanded-accordion-bg: #F5F5F5;
+  --pagination-button-bg: #FFFFFF;
+  --pagination-button-svg: #334155;
+  --pagination-disabled-button-bg: #E2E8F0;
+  --pagination-disabled-button-svg: #64748B;
 }
 
 body {
@@ -55,6 +61,7 @@ body {
   --default-nav-border: #484554;
   --default-footer-nav-svg: #FCF7FF;
   --default-footer-nav-text: #FCF7FF;
+  --default-footer-nav-border: #ffffff;
   --default-active-footer-nav-svg: #8576FF;
   --default-active-footer-nav-stroke: #8576FF;
   --text-status-completed: #65DDB5;
@@ -63,6 +70,11 @@ body {
   --text-status-in-progress: #77B1FF;
   --border-status-in-progress: #77B1FF;
   --bg-status-in-progress: transparent;
+  --expanded-accordion-bg: #383544;
+  --pagination-button-bg: #484554;
+  --pagination-button-svg: #8576FF;
+  --pagination-disabled-button-bg: #484554; /*with opacity 0f 60%*/
+  --pagination-disabled-button-svg: #8576FF;
 }
 
 a {
@@ -635,6 +647,10 @@ main .data-table-module tr, main .data-table-module th, main .data-table-module 
   color: var(--default-text);
   text-transform: capitalize;
 }
+main .data-table-module td {
+  cursor: pointer;
+  background-color: var(--default-second-bg);
+}
 main .data-table-module td div {
   padding: 1rem;
 }
@@ -642,6 +658,7 @@ main .data-table-module td .chevron-container { /*just in case...*/
   display: none;
 }
 main .data-table-module td .event-status {
+  margin: -0.125rem; /*I did this because the status tag is slighty bigger than the texts in the adjacent columns, so its parent's inherited padding of 1rem somewhat makes it bigger than the other items in the table */
   width: fit-content;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   display: flex;
@@ -660,6 +677,61 @@ main .data-table-module td .event-status span {
   height: 6px;
   border-radius: 50%;
   background-color: var(--text-status-completed);
+}
+main .data-table-module .pagination-area {
+  margin-top: 0.5rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+main .data-table-module .pagination-area .left {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 1rem;
+}
+main .data-table-module .pagination-area .left button {
+  background-color: var(--pagination-button-bg);
+  padding: 0.5rem;
+}
+main .data-table-module .pagination-area .left button div {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+main .data-table-module .pagination-area .left button div svg path {
+  stroke: var(--pagination-button-svg);
+}
+main .data-table-module .pagination-area .left button:hover {
+  background-color: var(--default-hovered-bg);
+}
+main .data-table-module .pagination-area .left button:first-child {
+  transform: rotate(90deg);
+}
+main .data-table-module .pagination-area .left button:last-child {
+  transform: rotate(-90deg);
+}
+main .data-table-module .pagination-area .left span {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--default-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .data-table-module .pagination-area .left span.active {
+  border-radius: 50%;
+  background-color: #8576FF;
+  color: white;
+}
+main .data-table-module .pagination-area .right {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 0.5rem;
 }
 
 .footer-nav {
@@ -720,7 +792,7 @@ main .data-table-module td .event-status span {
     margin-right: 0%;
     margin-left: auto;
   }
-  main .data-table-module tr td .chevron-container { /*just in case...*/
+  main .data-table-module tr td .chevron-container {
     display: inline;
     padding-left: 0;
     padding-right: 1rem;
@@ -732,12 +804,40 @@ main .data-table-module td .event-status span {
     transition: 0.4s ease;
     cursor: pointer;
   }
+  main .data-table-module tr td .chevron-container svg path {
+    stroke: var(--default-svg);
+  }
+  main .data-table-module tr td .chevron-container.turned svg {
+    transform: rotate(0deg);
+  }
+  main .data-table-module tr td .collapsible {
+    height: 0;
+    padding: 0;
+    padding-left: 1rem;
+    overflow: hidden;
+    transition: 0.3s ease;
+  }
+  main .data-table-module tr td .collapsible.expanded {
+    height: fit-content;
+    padding: 1rem;
+    background-color: var(--expanded-accordion-bg);
+  }
   main .data-table-module tr td .event-status {
     background-color: #10B981;
     border: none;
   }
   main .data-table-module tr td .event-status h5 {
     color: white;
+  }
+  main .data-table-module tr td .event-status.in-progress {
+    background-color: #10B981;
+  }
+  main .data-table-module .pagination-area {
+    margin-top: 0.75rem;
+    margin-bottom: 0.65rem;
+  }
+  main .data-table-module .pagination-area .right p {
+    display: none;
   }
 }
 @media screen and (max-width: 700px) {
@@ -850,6 +950,7 @@ main .data-table-module td .event-status span {
     justify-content: space-between;
     padding: 0 1rem;
     width: 100vw;
+    border-top: solid 1px var(--default-footer-nav-border);
   }
   .footer-nav .active-link a {
     border-top: solid 4px var(--default-active-footer-nav-stroke);

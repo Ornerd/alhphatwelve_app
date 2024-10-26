@@ -109,7 +109,7 @@ const Navbar = ({collapsed, handleCollapse, toggleDarkModeFunction}) => {
         </div>) 
         : 
         (<div className='nav-wrapper'>
-        <div className={`${clicked? 'visible-nav': 'visible-nav'}`}>
+        <div className='visible-nav'>
             <img src={fullLogo} alt="logo" className='logo' />
             <button className='ham-menu-container' onClick={()=>setClicked(clicked => !clicked)}>
             {clicked? <CloseSvg/> : <HamSvg/> }
