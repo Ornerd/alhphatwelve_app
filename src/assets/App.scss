@@ -16,6 +16,7 @@
   --collapsed-svg: #64748B;
   --default-selected-bg: #FCF7FF;
   --default-selected-text: #8576FF;
+  --default-table-header-bg: #F1F5F9;
     --default-hovered-bg: #f1f5f965;
     --default-hovered-text: #334155;
   --default-checkbox: #E2E8F0;
@@ -49,6 +50,7 @@ body {
     --collapsed-svg: #64748B;
     --default-selected-bg: #8576FF;
     --default-selected-text: #FCF7FF;
+    --default-table-header-bg:#6A6676;
     --default-hovered-bg: #FCF7FF;
     --default-hovered-text: #334155;
     --default-checkbox: #8576FF;
@@ -723,6 +725,31 @@ main {
                 }
             }
         }
+
+        table {
+            width: 100%;
+            text-align: left;
+            table-layout:fixed;
+            border-collapse: collapse; /*to prevent gaps between the cells in the table*/
+        }
+
+        th {
+            font-weight: 600;
+            background-color: var(--default-table-header-bg);
+        }
+
+        th, tr {
+            // padding: 1rem;
+            color: var(--default-text);
+            text-transform: capitalize;
+
+            div {
+                padding: 1rem;
+            }
+            .chevron-container { /*just in case...*/
+                display: none;
+            }
+        }
     }
    
 }
@@ -806,6 +833,22 @@ main {
                     margin-right: 0%;
                     margin-left: auto;
                    }
+                }
+            }
+
+            th, tr {
+                .chevron-container { /*just in case...*/
+                    display: inline;
+                    padding-left: 0;
+                    padding-right: 1rem;
+                    
+                    svg {
+                        width: 9px;
+                        height: 9px;
+                        transform: rotate(-90deg);
+                        transition: 0.4s ease;
+                        cursor: pointer;
+                    }
                 }
             }
         }

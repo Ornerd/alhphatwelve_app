@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 import './assets/App.css';
@@ -21,6 +21,7 @@ function App()  {
   const [collapsed, setCollapsed] = useState(false);
   const [inDarkMode, setInDarkMode] = useState(false)
   const toggleCollapseMenu = () => setCollapsed(collapsed => !collapsed);
+  const [windowSize, setWindowSize] = useState (window.innerWidth);
   const summaryStats = [
     {
       statLabel: 'Total Events',
@@ -49,6 +50,17 @@ function App()  {
   ]
 
   const toggleDarkMode = ()=> setInDarkMode(inDarkMode => !inDarkMode)
+
+  useEffect(()=> {  
+    const handleScreenResize= ()=> { //i'll be needing this here to render various table formats as per the sreen size
+      setWindowSize(window.innerWidth)
+    }
+    window.addEventListener('resize', handleScreenResize)
+    return ()=> {
+      window.removeEventListener('resize', handleScreenResize)
+    }
+  }, [])
+
   return (
     <>
       <aside className={collapsed? 'collapsed' : ''}> {/*for larger screens */}
@@ -157,7 +169,59 @@ function App()  {
               </button>
 
             </div>
+
+           
           </div>
+
+          <table>
+            {
+              windowSize > 895 ?
+              (
+                <>
+                  <tr>
+                    <th><div>Event name</div></th>
+                    <th><div>date</div></th>
+                    <th><div>speaker</div></th>
+                    <th><div>status</div></th>
+                  </tr>
+                  <tr>
+                    <td> 
+                      <div>Event name</div>
+                    </td>
+                    <td>
+                      <div>Speaker</div>
+                    </td>
+                    <td>
+                      <div>Date</div>
+                    </td>
+                    <td>
+                       <div>Status</div>
+                    </td>
+                  </tr>
+                </>
+              )
+              :
+              (
+                <>
+                  <tr>
+                    <th><div className=''>Event name</div></th>
+                    <th><div>status</div></th>
+                  </tr>
+                  <tr>
+                    <td> 
+                      <div><span className='chevron-container'><SingleChevron/></span>Event name</div>
+                      <div className=''>Speaker</div>
+                    </td>
+                    <td>
+                       <div>Status</div>
+                       <div className=''>Date</div>
+                       </td>
+                  </tr>
+                </>
+              )
+            }
+              
+          </table>
 
         </section>
       </main>
