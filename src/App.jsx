@@ -217,7 +217,11 @@ function App()  {
                       <div className=''>Speaker</div>
                     </td>
                     <td>
-                       <div>Status</div>
+                       <div>
+                       <span className='event-status'>
+                          <h5>{'completed'}</h5>
+                        </span>
+                       </div>
                        <div className=''>Date</div>
                        </td>
                   </tr>

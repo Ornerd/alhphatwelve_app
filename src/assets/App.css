@@ -732,6 +732,13 @@ main .data-table-module td .event-status span {
     transition: 0.4s ease;
     cursor: pointer;
   }
+  main .data-table-module tr td .event-status {
+    background-color: #10B981;
+    border: none;
+  }
+  main .data-table-module tr td .event-status h5 {
+    color: white;
+  }
 }
 @media screen and (max-width: 700px) {
   nav {
