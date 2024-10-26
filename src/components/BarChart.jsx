@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2'
 import {
     Chart as ChartJS,
@@ -19,6 +19,17 @@ ChartJS.register(
 
 
 const BarChart = ({inDarkMode}) => {
+    const [windowSize, setWindowSize] = useState (window.innerWidth);
+
+    useEffect(()=> {  
+        const handleScreenResize= ()=> { //i'll be needing this here to make the label appear as per the design
+          setWindowSize(window.innerWidth)
+        }
+        window.addEventListener('resize', handleScreenResize)
+        return ()=> {
+          window.removeEventListener('resize', handleScreenResize)
+        }
+      }, [])
 
     const options = {
         responsive: true,
@@ -99,7 +110,7 @@ const BarChart = ({inDarkMode}) => {
     <Bar
         options={options}
         data={{
-            labels : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],  //these data are meant to come from an API actually.
+            labels : windowSize > 895? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] : ['Ja', 'Fe', 'Ma', 'Ap', 'Ma', 'Ju', 'Ju', 'Au', 'Se', 'Oc', 'No', 'De']  ,  //these data are meant to come from an API actually.
 
             datasets : [
                 {
