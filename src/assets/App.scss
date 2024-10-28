@@ -1027,7 +1027,7 @@ main {
                     }  
 
                 }
-                &:nth-child(odd) {
+                &:nth-child(odd) {  /*I'm targeting the collapsible accordions and ensuring the 'date' cells don't occupy more than one line as per the design*/
                     :last-child {
                         text-wrap: nowrap;
                         background-color: var(--expanded-accordion-bg);
