@@ -859,6 +859,7 @@ main .data-table-module .pagination-area .right {
     background-color: var(--expanded-accordion-bg);
   }
   main .data-table-module .collapsible-container :last-child div {
+    padding: 0;
     padding-right: 0.5rem;
   }
   main .data-table-module .pagination-area {

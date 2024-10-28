@@ -1032,6 +1032,7 @@ main {
                     text-wrap: nowrap;
                     background-color: var(--expanded-accordion-bg);
                     div {
+                        padding: 0;
                         padding-right: 0.5rem;
                     }
                 }
