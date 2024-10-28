@@ -68,6 +68,10 @@ const Navbar = ({collapsed, handleCollapse, toggleDarkModeFunction}) => {
         }
       }, [])
 
+    useEffect(()=>{
+            document.body.classList.toggle('no-scroll');     
+    }, [clicked])
+
     const toggleDarkMode =() => {
         document.body.classList.toggle('dark-mode');
         toggleDarkModeFunction();

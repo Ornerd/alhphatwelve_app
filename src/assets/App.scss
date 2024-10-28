@@ -139,6 +139,10 @@ p {
     line-height: 1.25rem; /*20px converted to rem*/
     color: var(--default-text);
 }
+.no-scroll {
+    height: 100vh;
+    overflow: hidden;
+}
 
 .drop-down-bar {
     position: relative;
@@ -1036,7 +1040,7 @@ main {
                     .collapsible {
                         padding-left: 0rem;
                         text-wrap: nowrap;
-                        
+
                         &.expanded {
                             height:fit-content;
                             padding-left: 0rem;

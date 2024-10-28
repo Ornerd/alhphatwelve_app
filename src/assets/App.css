@@ -138,6 +138,11 @@ p {
   color: var(--default-text);
 }
 
+.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .drop-down-bar {
   position: relative;
   border: solid 1px var(--default-nav-border);
