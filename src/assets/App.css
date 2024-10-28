@@ -860,6 +860,7 @@ main .data-table-module .pagination-area .right {
   }
   main .data-table-module .collapsible-container :last-child div {
     padding: 0;
+    padding-left: 1rem; /*to ensure that 'date' cell doesn't shift to the left when collapsing*/
     padding-right: 0.5rem;
   }
   main .data-table-module .pagination-area {
