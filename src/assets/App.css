@@ -829,7 +829,7 @@ main .data-table-module .pagination-area .right {
   main .data-table-module tr td .collapsible {
     height: 0;
     padding: 0;
-    padding-left: 1rem;
+    padding-left: 1rem; /*to ensure that 'date' cell doesn't shift to the left when collapsing*/
     overflow: hidden;
     transition: 0.3s ease;
   }
@@ -859,8 +859,6 @@ main .data-table-module .pagination-area .right {
     background-color: var(--expanded-accordion-bg);
   }
   main .data-table-module .collapsible-container :last-child div {
-    padding: 0;
-    padding-left: 1rem; /*to ensure that 'date' cell doesn't shift to the left when collapsing*/
     padding-right: 0.5rem;
   }
   main .data-table-module .pagination-area {
