@@ -853,12 +853,12 @@ main .data-table-module .pagination-area .right {
   main .data-table-module tr td .event-status.in-progress h6 {
     color: white;
   }
-  main .data-table-module tr:nth-child(odd) { /*I'm targeting the collapsible accordions and ensuring the 'date' cells don't occupy more than one line as per the design*/ }
-  main .data-table-module tr:nth-child(odd) :last-child {
+  main .data-table-module .collapsible-container { /*I'm targeting the collapsible accordions and ensuring the 'date' cells don't occupy more than one line as per the design*/ }
+  main .data-table-module .collapsible-container :last-child {
     text-wrap: nowrap;
     background-color: var(--expanded-accordion-bg);
   }
-  main .data-table-module tr:nth-child(odd) :last-child div {
+  main .data-table-module .collapsible-container :last-child div {
     padding: 0;
     padding-right: 0.5rem;
   }

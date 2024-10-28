@@ -21,7 +21,7 @@ const TableAccordion = ({EventName, EventDate, speaker, EventStatus}) => {
                 </div>
             </td>
         </tr>
-        <tr>
+        <tr className='collapsible-container'>
             <td> 
                 <div className={accordionVisible? 'collapsible expanded' : 'collapsible'}>
                     {speaker}

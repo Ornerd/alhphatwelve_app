@@ -967,7 +967,6 @@ main {
                    }
                 }
             }
-
             tr {
                 td{
                     width: 30px;
@@ -1027,18 +1026,18 @@ main {
                     }  
 
                 }
-                &:nth-child(odd) {  /*I'm targeting the collapsible accordions and ensuring the 'date' cells don't occupy more than one line as per the design*/
-                    :last-child {
-                        text-wrap: nowrap;
-                        background-color: var(--expanded-accordion-bg);
-                        div {
-                            padding: 0;
-                            padding-right: 0.5rem;
-                        }
+            }
+            .collapsible-container {  /*I'm targeting the collapsible accordions and ensuring the 'date' cells don't occupy more than one line as per the design*/
+                :last-child {
+                    text-wrap: nowrap;
+                    background-color: var(--expanded-accordion-bg);
+                    div {
+                        padding: 0;
+                        padding-right: 0.5rem;
                     }
                 }
-               
             }
+
             .pagination-area {
                 margin-top: 0.75rem;
                 margin-bottom: 0.65rem;
