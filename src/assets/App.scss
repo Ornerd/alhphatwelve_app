@@ -799,6 +799,22 @@ main {
                     border-radius: 50%;
                     background-color: var(--text-status-completed);
                 }
+
+                &.in-progress {
+                    background-color: var(--bg-status-in-progress);
+                    border: solid 1px var(--border-status-in-progress);
+
+                h5 {
+                    color: var(--text-status-in-progress);
+                }
+
+                span {
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: var(--text-status-in-progress);
+                }
+                }
             }  
         }
 
@@ -997,7 +1013,12 @@ main {
                         }
 
                         &.in-progress {
-                            background-color: #10B981;
+                            background-color: #3B82F6;
+                            border: none;
+
+                            h5 {
+                                color: white;
+                            }
                         }
                     }  
 

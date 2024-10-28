@@ -19,18 +19,6 @@ ChartJS.register(
 
 
 const BarChart = ({inDarkMode}) => {
-    const [windowSize, setWindowSize] = useState (window.innerWidth);
-
-    useEffect(()=> {  
-        const handleScreenResize= ()=> { //i'll be needing this here to make the label appear as per the design
-          setWindowSize(window.innerWidth)
-        }
-        window.addEventListener('resize', handleScreenResize)
-        return ()=> {
-          window.removeEventListener('resize', handleScreenResize)
-        }
-      }, [])
-
     const options = {
         responsive: true,
         
@@ -55,7 +43,7 @@ const BarChart = ({inDarkMode}) => {
                 },
                 ticks: {
                     padding: 15,  //to sort of push the numbers away from the ticks by that amount.
-                    color: inDarkMode? '#FCF7FF' : '#64748B',
+                    color: inDarkMode? '#FCF7FF' : '#64748B', //color of the labels
                     stepSize: 200,
                 }
             },
@@ -110,7 +98,7 @@ const BarChart = ({inDarkMode}) => {
     <Bar
         options={options}
         data={{
-            labels : windowSize > 895? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] : ['Ja', 'Fe', 'Ma', 'Ap', 'Ma', 'Ju', 'Ju', 'Au', 'Se', 'Oc', 'No', 'De']  ,  //these data are meant to come from an API actually.
+            labels : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] ,  //these data are meant to come from an API actually.
 
             datasets : [
                 {

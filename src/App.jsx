@@ -14,6 +14,8 @@ import VerticalDots from './components/IconsSVG/otherIconsSVG/VerticalDots';
 import DownloadIcon from './components/IconsSVG/otherIconsSVG/DownloadIcon';
 import SearchIcon from './components/IconsSVG/otherIconsSVG/SearchIcon';
 import SingleChevron from './components/IconsSVG/SingleChevron';
+import TableData from './components/Placeholder Data/TableData';
+import TableAccordion from './components/TableAccordion';
 
 
 
@@ -22,7 +24,6 @@ function App()  {
   const [inDarkMode, setInDarkMode] = useState(false)
   const toggleCollapseMenu = () => setCollapsed(collapsed => !collapsed);
   const [windowSize, setWindowSize] = useState (window.innerWidth);
-  const [accordionVisible, setAccordionVisible] = useState(false)
   const summaryStats = [
     {
       statLabel: 'Total Events',
@@ -185,24 +186,28 @@ function App()  {
                     <th><div>speaker</div></th>
                     <th><div>status</div></th>
                   </tr>
-                  <tr>
-                    <td> 
-                      <div>Event name</div>
-                    </td>
-                    <td>
-                      <div>Speaker</div>
-                    </td>
-                    <td>
-                      <div>Date</div>
-                    </td>
-                    <td>
+                  {TableData.map(data=> (
+                    <tr key={data.EventId}>
+                      <td> 
+                        <div>{data.EventName}</div>
+                      </td>
+                      <td>
+                        <div>{data.EventDate}</div>
+                      </td>
+                      <td>
+                        <div>{data.speaker}</div>
+                      </td>
+                      <td>
                        <div>
-                        <span className='event-status'>
-                          <span></span><h5>{'completed'}</h5>
+                        <span className={ data.EventStatus.toLowerCase() ==='in progress'? 'event-status in-progress' : 'event-status'}>
+                          <span></span><h5>{data.EventStatus}</h5>
                         </span>
                        </div>
-                    </td>
-                  </tr>
+                      </td>
+                    </tr>
+                  ))
+                  }
+                  
                 </>
               )
               :
@@ -212,20 +217,12 @@ function App()  {
                     <th><div className=''>Event name</div></th>
                     <th><div>status</div></th>
                   </tr>
-                  <tr>
-                    <td> 
-                      <div><span className={accordionVisible? 'chevron-container turned' : 'chevron-container'} onClick={()=>setAccordionVisible(visible=>!visible)}><SingleChevron/></span>Event name</div>
-                      <div className={accordionVisible? 'collapsible expanded' : 'collapsible'}>Speaker</div>
-                    </td>
-                    <td>
-                       <div>
-                       <span className='event-status'>
-                          <h5>{'completed'}</h5>
-                        </span>
-                       </div>
-                       <div className={accordionVisible? 'collapsible expanded' : 'collapsible'}>Date</div>
-                       </td>
-                  </tr>
+                  {
+                    TableData.map(data=> (
+                     <TableAccordion key={data.EventId}{...data}/>
+                    ))
+                  }
+                
                 </>
               )
             }

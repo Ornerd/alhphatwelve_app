@@ -678,6 +678,19 @@ main .data-table-module td .event-status span {
   border-radius: 50%;
   background-color: var(--text-status-completed);
 }
+main .data-table-module td .event-status.in-progress {
+  background-color: var(--bg-status-in-progress);
+  border: solid 1px var(--border-status-in-progress);
+}
+main .data-table-module td .event-status.in-progress h5 {
+  color: var(--text-status-in-progress);
+}
+main .data-table-module td .event-status.in-progress span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--text-status-in-progress);
+}
 main .data-table-module .pagination-area {
   margin-top: 0.5rem;
   margin-bottom: 3rem;
@@ -830,7 +843,11 @@ main .data-table-module .pagination-area .right {
     color: white;
   }
   main .data-table-module tr td .event-status.in-progress {
-    background-color: #10B981;
+    background-color: #3B82F6;
+    border: none;
+  }
+  main .data-table-module tr td .event-status.in-progress h5 {
+    color: white;
   }
   main .data-table-module .pagination-area {
     margin-top: 0.75rem;
