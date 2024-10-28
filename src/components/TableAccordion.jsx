@@ -16,7 +16,7 @@ const TableAccordion = ({EventName, EventDate, speaker, EventStatus}) => {
             <td>
                 <div>
                 <span className={EventStatus.toLowerCase()==='in progress' ? 'event-status in-progress' : 'event-status'}>
-                    <h5>{EventStatus}</h5>
+                    <h6>{EventStatus}</h6>
                     </span>
                 </div>
             </td>

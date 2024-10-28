@@ -969,6 +969,7 @@ main {
 
             tr {
                 td{
+                    width: 30px;
                     .chevron-container { 
                         display: inline;
                         padding-left: 0;
@@ -991,6 +992,7 @@ main {
                             }
                         }
                     }
+                   
                     .collapsible {
                         height: 0;
                         padding: 0;
@@ -1007,8 +1009,9 @@ main {
                     .event-status {
                         background-color: #10B981;
                         border: none;
+                        text-wrap: nowrap;
         
-                        h5 {
+                        h6 {
                             color: white;
                         }
 
@@ -1016,14 +1019,24 @@ main {
                             background-color: #3B82F6;
                             border: none;
 
-                            h5 {
+                            h6 {
                                 color: white;
                             }
                         }
                     }  
 
                 }
-                
+                &:nth-child(odd) {
+                    :last-child {
+                        text-wrap: nowrap;
+                        background-color: var(--expanded-accordion-bg);
+                        div {
+                            padding: 0;
+                            padding-right: 0.5rem;
+                        }
+                    }
+                }
+               
             }
             .pagination-area {
                 margin-top: 0.75rem;

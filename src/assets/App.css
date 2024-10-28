@@ -805,6 +805,9 @@ main .data-table-module .pagination-area .right {
     margin-right: 0%;
     margin-left: auto;
   }
+  main .data-table-module tr td {
+    width: 30px;
+  }
   main .data-table-module tr td .chevron-container {
     display: inline;
     padding-left: 0;
@@ -838,16 +841,25 @@ main .data-table-module .pagination-area .right {
   main .data-table-module tr td .event-status {
     background-color: #10B981;
     border: none;
+    text-wrap: nowrap;
   }
-  main .data-table-module tr td .event-status h5 {
+  main .data-table-module tr td .event-status h6 {
     color: white;
   }
   main .data-table-module tr td .event-status.in-progress {
     background-color: #3B82F6;
     border: none;
   }
-  main .data-table-module tr td .event-status.in-progress h5 {
+  main .data-table-module tr td .event-status.in-progress h6 {
     color: white;
+  }
+  main .data-table-module tr:nth-child(odd) :last-child {
+    text-wrap: nowrap;
+    background-color: var(--expanded-accordion-bg);
+  }
+  main .data-table-module tr:nth-child(odd) :last-child div {
+    padding: 0;
+    padding-right: 0.5rem;
   }
   main .data-table-module .pagination-area {
     margin-top: 0.75rem;
