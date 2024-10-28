@@ -214,8 +214,8 @@ function App()  {
               (
                 <>
                   <tr>
-                    <th style={{width: '75%'}}><div className=''>Event name</div></th>
-                    <th style={{width: '25%'}}><div>status</div></th>
+                    <th style={{width: '70%'}}><div className=''>Event name</div></th>
+                    <th style={{width: '30%'}}><div>status</div></th>
                   </tr>
                   {
                     TableData.map(data=> (
