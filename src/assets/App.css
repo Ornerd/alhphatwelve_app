@@ -195,6 +195,10 @@ p {
   position: fixed;
 }
 
+.no-wrap {
+  text-wrap: nowrap;
+}
+
 nav {
   display: none;
 }
@@ -805,9 +809,6 @@ main .data-table-module .pagination-area .right {
     margin-right: 0%;
     margin-left: auto;
   }
-  main .data-table-module tr td {
-    width: 30px;
-  }
   main .data-table-module tr td .chevron-container {
     display: inline;
     padding-left: 0;
@@ -826,18 +827,6 @@ main .data-table-module .pagination-area .right {
   main .data-table-module tr td .chevron-container.turned svg {
     transform: rotate(0deg);
   }
-  main .data-table-module tr td .collapsible {
-    height: 0;
-    padding: 0;
-    padding-left: 1rem; /*to ensure that 'date' cell doesn't shift to the left when collapsing*/
-    overflow: hidden;
-    transition: 0.3s ease;
-  }
-  main .data-table-module tr td .collapsible.expanded {
-    height: fit-content;
-    padding: 1rem;
-    background-color: var(--expanded-accordion-bg);
-  }
   main .data-table-module tr td .event-status {
     background-color: #10B981;
     border: none;
@@ -853,14 +842,28 @@ main .data-table-module .pagination-area .right {
   main .data-table-module tr td .event-status.in-progress h6 {
     color: white;
   }
-  main .data-table-module .collapsible-container { /*I'm targeting the collapsible accordions and ensuring the 'date' cells don't occupy more than one line as per the design*/ }
-  main .data-table-module .collapsible-container :last-child {
-    text-wrap: nowrap;
+  main .data-table-module .collapsible-container .collapsible {
+    height: 0;
+    padding: 0;
+    padding-left: 1rem;
+    overflow: hidden;
+    transition: 0.3s ease;
+  }
+  main .data-table-module .collapsible-container .collapsible.expanded {
+    height: fit-content;
+    padding: 1rem;
     background-color: var(--expanded-accordion-bg);
   }
-  main .data-table-module .collapsible-container :last-child div {
-    padding: 0;
+  main .data-table-module .collapsible-container td:last-child { /*all these just to prevent the 'date' cell from moving leftwards because of its default padding.*/ }
+  main .data-table-module .collapsible-container td:last-child .collapsible {
+    padding-left: 0rem;
+    text-wrap: nowrap;
+  }
+  main .data-table-module .collapsible-container td:last-child .collapsible.expanded {
+    height: fit-content;
+    padding-left: 0rem;
     padding-right: 0.5rem;
+    background-color: var(--expanded-accordion-bg);
   }
   main .data-table-module .pagination-area {
     margin-top: 0.75rem;

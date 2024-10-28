@@ -205,6 +205,9 @@ p {
 .fixed {
     position: fixed;
 }
+.no-wrap {
+    text-wrap: nowrap;
+}
 nav {
     display: none; //hiding the top navbar to make it exclusive to mobile screens
 }
@@ -967,9 +970,9 @@ main {
                    }
                 }
             }
+
             tr {
                 td{
-                    width: 30px;
                     .chevron-container { 
                         display: inline;
                         padding-left: 0;
@@ -992,20 +995,6 @@ main {
                             }
                         }
                     }
-                   
-                    .collapsible {
-                        height: 0;
-                        padding: 0;
-                        padding-left: 1rem; /*to ensure that 'date' cell doesn't shift to the left when collapsing*/
-                        overflow: hidden;
-                        transition: 0.3s ease;
-
-                        &.expanded {
-                            height:fit-content;
-                            padding: 1rem;
-                            background-color: var(--expanded-accordion-bg);
-                        }
-                    }
                     .event-status {
                         background-color: #10B981;
                         border: none;
@@ -1025,19 +1014,38 @@ main {
                         }
                     }  
 
-                }
+                }               
             }
-            .collapsible-container {  /*I'm targeting the collapsible accordions and ensuring the 'date' cells don't occupy more than one line as per the design*/
-                :last-child {
-                    text-wrap: nowrap;
-                    background-color: var(--expanded-accordion-bg);
-                    div {
-                        padding: 0;
-                        padding-right: 0.5rem;
+            .collapsible-container {
+                // background-color: var(--default-table-header-bg);  /*I'm targeting the collapsible accordions and ensuring the 'date' cells don't occupy more than one line as per the design*/
+                .collapsible {
+                    height: 0;
+                    padding: 0;
+                    padding-left: 1rem;
+                    overflow: hidden;
+                    transition: 0.3s ease;
+                    
+                    &.expanded {
+                        height:fit-content;
+                        padding: 1rem;
+                        background-color: var(--expanded-accordion-bg);
+                    }
+                }
+                td:last-child {  /*all these just to prevent the 'date' cell from moving leftwards because of its default padding.*/
+
+                    .collapsible {
+                        padding-left: 0rem;
+                        text-wrap: nowrap;
+                        
+                        &.expanded {
+                            height:fit-content;
+                            padding-left: 0rem;
+                            padding-right: 0.5rem;
+                            background-color: var(--expanded-accordion-bg);
+                        }
                     }
                 }
             }
-
             .pagination-area {
                 margin-top: 0.75rem;
                 margin-bottom: 0.65rem;
