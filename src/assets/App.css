@@ -835,6 +835,7 @@ main .data-table-module .pagination-area .right {
 @media screen and (max-width: 895px) {
   .popup-background-overlay .popup-modal {
     max-width: 335px;
+    max-height: 100vh;
   }
   .popup-background-overlay .button-container {
     padding: 1.5rem;
