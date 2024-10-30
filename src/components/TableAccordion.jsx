@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import SingleChevron from './IconsSVG/SingleChevron';
 
 
-const TableAccordion = ({EventName, EventDate, speaker, EventStatus}) => {
+const TableAccordion = ({EventName, EventDate, speaker, EventStatus, onClick}) => {
     const [accordionVisible, setAccordionVisible] = useState(false)
+
+
   return (
     <>
         <tr>
-            <td> 
+            <td onClick={onClick}> 
                 <div>
                 <span className={accordionVisible? 'chevron-container turned' : 'chevron-container'} onClick={()=>setAccordionVisible(visible=>!visible)}><SingleChevron/></span>
                 {EventName}

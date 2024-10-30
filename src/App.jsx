@@ -16,6 +16,7 @@ import SearchIcon from './components/IconsSVG/otherIconsSVG/SearchIcon';
 import SingleChevron from './components/IconsSVG/SingleChevron';
 import TableData from './components/Placeholder Data/TableData';
 import TableAccordion from './components/TableAccordion';
+import PopupModal from './components/PopupModal';
 
 
 
@@ -24,6 +25,7 @@ function App()  {
   const [inDarkMode, setInDarkMode] = useState(false)
   const toggleCollapseMenu = () => setCollapsed(collapsed => !collapsed);
   const [windowSize, setWindowSize] = useState (window.innerWidth);
+  const [modalData, setModalData] = useState(null)
   const summaryStats = [
     {
       statLabel: 'Total Events',
@@ -53,6 +55,10 @@ function App()  {
 
   const toggleDarkMode = ()=> setInDarkMode(inDarkMode => !inDarkMode)
 
+  const showModal = ({EventName, EventDate, speaker, attendees}) => {
+    setModalData({EventName, EventDate, speaker, attendees});
+  }
+
   useEffect(()=> {  
     const handleScreenResize= ()=> { //i'll be needing this here to render various table formats as per the sreen size
       setWindowSize(window.innerWidth)
@@ -65,6 +71,13 @@ function App()  {
 
   return (
     <>
+
+    {modalData && (
+      <PopupModal
+      {...modalData}
+      onClick={()=>setModalData(null)}
+      />
+    )}
       <aside className={collapsed? 'collapsed' : ''}> {/*for larger screens */}
         <Navbar
         collapsed={collapsed}
@@ -146,7 +159,7 @@ function App()  {
               selectFunc={"nameOf"}
               />
 
-              <p><span>Displaying {100} results</span></p>
+              <p><span>Displaying {TableData.length} results</span></p>
             </div>
 
             <div className='right-alignment'>
@@ -187,9 +200,9 @@ function App()  {
                     <th><div>status</div></th>
                   </tr>
                   {TableData.map(data=> (
-                    <tr key={data.EventId}>
+                    <tr key={data.EventId} >
                       <td> 
-                        <div>{data.EventName}</div>
+                        <div onClick={()=>showModal({...data})}>{data.EventName}</div>
                       </td>
                       <td>
                         <div>{data.EventDate}</div>
@@ -219,7 +232,10 @@ function App()  {
                   </tr>
                   {
                     TableData.map(data=> (
-                     <TableAccordion key={data.EventId}{...data}/>
+                     <TableAccordion 
+                     key={data.EventId}{...data}
+                     onClick={()=>showModal({...data})}
+                     />
                     ))
                   }
                 

@@ -37,6 +37,7 @@
   --pagination-button-svg: #334155;
   --pagination-disabled-button-bg: #E2E8F0;
   --pagination-disabled-button-svg: #64748B;
+  --modal-button-container: #F8FAFC;
 }
 
 // @keyframes resizeAsideBar {
@@ -83,6 +84,7 @@ body {
   --pagination-button-svg: #8576FF;
   --pagination-disabled-button-bg: #484554; /*with opacity 0f 60%*/
   --pagination-disabled-button-svg: #8576FF;
+  --modal-button-container: #ADA9BB;
 }
 a {
     text-decoration: none;
@@ -215,7 +217,75 @@ p {
 nav {
     display: none; //hiding the top navbar to make it exclusive to mobile screens
 }
+.popup-background-overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000094;
+    z-index: 10000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    .popup-modal {
+        position: relative;
+        max-width: 450px;
+        background-color: var(--default-second-bg);
+        box-shadow: 0px 16px 24px 0px #00000026;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        cursor: pointer;
+        z-index: 5;
+    }
+
+    .info-wrapper {
+        padding: 1.5rem;
+
+        .info-summary {
+            margin-bottom: 1.5rem;
+
+            h3 {
+                line-height: 1.75rem;
+            }
+
+            p:last-child {
+                margin-top: 1.5rem;
+            }
+        }
+    }
+    .button-container {
+        padding: 1.5rem;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 0.625rem;
+        background-color: var(--modal-button-container);
+
+        button {
+            padding: 0.5rem 1rem 0.5rem 1rem;  /*top right bottom left*/
+
+            &:first-child {
+                margin-right: auto;
+                border: solid 1px #E2E8F0;
+                background-color: #ffffff;
+            }
+            &:nth-child(2) {
+                background-color: #F43F5E;
+                color: #ffffff;
+                border: solid 1px #F43F5E;
+            }
+            &:last-child {
+                background-color: #8576FF;
+                color: #ffffff;
+                border: solid 1px #8576FF;
+            }
+        }
+    }
+}
 aside {
     width: 240px;
     position: fixed;
