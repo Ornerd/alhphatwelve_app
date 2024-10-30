@@ -833,6 +833,35 @@ main .data-table-module .pagination-area .right {
   }
 }
 @media screen and (max-width: 895px) {
+  .popup-background-overlay .popup-modal {
+    max-width: 335px;
+  }
+  .popup-background-overlay .button-container {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup-background-overlay .button-container button {
+    padding: 0.5rem 1rem 0.5rem 1rem; /*top right bottom left*/
+    width: 100%;
+  }
+  .popup-background-overlay .button-container button:first-child {
+    margin-right: auto;
+    border: solid 1px #E2E8F0;
+    background-color: #ffffff;
+  }
+  .popup-background-overlay .button-container button:nth-child(2) {
+    background-color: #F43F5E;
+    color: #ffffff;
+    border: solid 1px #F43F5E;
+  }
+  .popup-background-overlay .button-container button:last-child {
+    background-color: #8576FF;
+    color: #ffffff;
+    border: solid 1px #8576FF;
+  }
   main .stats-array .stat {
     width: 48.5%;
   }

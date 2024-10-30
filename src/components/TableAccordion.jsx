@@ -8,10 +8,10 @@ const TableAccordion = ({EventName, EventDate, speaker, EventStatus, onClick}) =
 
   return (
     <>
-        <tr>
-            <td onClick={onClick}> 
+        <tr onClick={()=>setAccordionVisible(visible=>!visible)}>
+            <td> 
                 <div>
-                <span className={accordionVisible? 'chevron-container turned' : 'chevron-container'} onClick={()=>setAccordionVisible(visible=>!visible)}><SingleChevron/></span>
+                <span className={accordionVisible? 'chevron-container turned' : 'chevron-container'}><SingleChevron/></span>
                 {EventName}
                 </div>
             </td>
@@ -23,7 +23,7 @@ const TableAccordion = ({EventName, EventDate, speaker, EventStatus, onClick}) =
                 </div>
             </td>
         </tr>
-        <tr className='collapsible-container'>
+        <tr className='collapsible-container' onClick={onClick}>
             <td> 
                 <div className={accordionVisible? 'collapsible expanded' : 'collapsible'}>
                     {speaker}
